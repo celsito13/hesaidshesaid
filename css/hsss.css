@@ -29,10 +29,22 @@ GENERAL
 }
 
 /*=============================
+FONTS
+=============================*/
+
+body, p, h1, h2 {
+  font-family: "proxima-nova",sans-serif;
+}
+
+p, h1, h2, h3 {
+  margin: 10px 0px;
+}
+
+/*=============================
 CONTAINER
 =============================*/
 .page_container {
-  padding-top: 72px;
+  padding-top: 53px;
   overflow: hidden;
 }
 
@@ -138,6 +150,9 @@ HEADER
 
 .header h1 {
   color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 25px;
 }
 
 .he_said_header {
@@ -165,7 +180,7 @@ HEADER
 
 .header i.fa.fa-bars {
   position: absolute;
-  top: 27px;
+  top: 20px;
   right: 30px;
   color: #fff;
 }
@@ -234,7 +249,7 @@ HEADER OVERLAY
 	font-size: 54px;
 	font-weight: 300;
 	display: block;
-	color: #fff;
+	color: #3d3d3d;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
@@ -276,6 +291,19 @@ HEADER OVERLAY
 }
 
 /*=============================
+SECTIONS
+=============================*/
+
+.map_container {
+  position: relative;
+  background-image: url('../img/placeholder_map.png');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 500px;
+  background-position: 0px 200px;
+}
+
+/*=============================
 ANIMATIONS
 =============================*/
 
@@ -285,4 +313,13 @@ ANIMATIONS
 
 .os-animation.animated{
   opacity: 1;
+}
+
+/*=============================
+PARALLAX
+=============================*/
+
+.fixed_container {
+  position: fixed;
+  width: 100%;
 }

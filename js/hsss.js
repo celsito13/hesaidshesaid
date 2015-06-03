@@ -33,7 +33,7 @@ $(document).ready(function() {
 					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
 				}
 			},{
-				offset: '50%'
+				offset: '40%'
 			});
 		});
 	}
@@ -99,5 +99,11 @@ $(document).ready(function() {
 	============================*/
 
 	$('.overlay ul li').smoothScroll(500);
+
+	/*============================
+	SKROLLR
+	============================*/
+
+	var s = skrollr.init();
 
 });

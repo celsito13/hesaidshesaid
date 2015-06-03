@@ -36,7 +36,7 @@
 
       <!-- DAY 1 TITLE -->
 
-      <div class="colored_container">
+      <div class="colored_container fixed_container" style="top: 54px">
 
         <div class="row">
           
@@ -52,7 +52,13 @@
 
       </div>
 
-      <img src="img/placeholder_map.png" />
+      <div class="map_container" style="margin-top: 241px">
+
+        <div class="section_label top_label">
+         <i class="fa fa-flag"></i> 260 Meserole St. Brooklyn 11206
+        </div>
+
+      </div>
 
       <!-- FIRST INTERACTION -->
 
@@ -92,11 +98,11 @@
 
       <!-- AUDIO -->
 
-      <div class="audio_container">
+      <div class="audio_container" id="number_exchange">
 
         <div class="row">
 
-          <div class="section_label top_label">
+          <div class="os-animation section_label top_label" data-os-animation-down="pulse" data-os-animation-up="fadeOutDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
            <i class="fa fa-volume-up"></i> Number Exchange (00:33)
           </div>
 
@@ -134,7 +140,7 @@
 
         <div class="row">
 
-          <div class="section_label top_label">
+          <div class="os-animation section_label top_label" data-os-animation-down="pulse" data-os-animation-up="fadeOutDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
            <i class="fa fa-volume-up"></i> First Impressions (01:55)
           </div>
 
@@ -184,7 +190,7 @@
 
         <div class="row">
 
-          <div class="section_label top_label">
+          <div class="os-animation section_label top_label" data-os-animation-down="pulse" data-os-animation-up="fadeOutDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
            <i class="fa fa-volume-up"></i> Cuddle Room (00:34)
           </div>
 
@@ -200,7 +206,7 @@
       <button type="button" class="overlay-close"><i class="fa fa-times fa-2x"></i></button>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="#number_exchange">Number Exchange</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#celso">Work</a></li>
           <li><a href="#">Clients</a></li>
@@ -216,6 +222,9 @@
     <script src="js/classie.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
     <script src="js/smoothscroll/jquery.smoothscroll.min.js"></script>
+    <script src="js/skrollr/skrollr.min.js"></script>
+    <script src="//use.typekit.net/jyf0kku.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
     <script src="js/hsss.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
