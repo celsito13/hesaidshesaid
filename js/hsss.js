@@ -98,7 +98,7 @@ $(document).ready(function() {
 	SMOOTH SCROLL
 	============================*/
 
-	$('.overlay ul li').smoothScroll(500);
+	$('.overlay ul li a').smoothScroll({offset: -60});
 
 	/*============================
 	SKROLLR

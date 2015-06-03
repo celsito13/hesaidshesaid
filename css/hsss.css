@@ -36,6 +36,11 @@ body, p, h1, h2 {
   font-family: "proxima-nova",sans-serif;
 }
 
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
 p, h1, h2, h3 {
   margin: 10px 0px;
 }
@@ -145,7 +150,7 @@ HEADER
   position: fixed;
   width: 100%;
   z-index: 9999;
-  box-shadow: 0px 1px 5px #3d3d3d;
+  box-shadow: 0px 1px 5px #333333;
 }
 
 .header h1 {
@@ -246,10 +251,10 @@ HEADER OVERLAY
 }
 
 .overlay ul li a {
-	font-size: 54px;
+	font-size: 40px;
 	font-weight: 300;
 	display: block;
-	color: #3d3d3d;
+	color: #333333;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
@@ -257,6 +262,10 @@ HEADER OVERLAY
 .overlay ul li a:hover,
 .overlay ul li a:focus {
 	color: #f0f0f0;
+}
+
+.overlay i.fa.fa-times.fa-2x {
+  color: #333333;
 }
 
 /*=== Effects ===*/
@@ -278,16 +287,6 @@ HEADER OVERLAY
 	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
 	transition: transform 0.4s, opacity 0.4s;
 	z-index: 9999;
-}
-
-@media screen and (max-height: 30.5em) {
-	.overlay nav {
-		height: 70%;
-		font-size: 34px;
-	}
-	.overlay ul li {
-		min-height: 34px;
-	}
 }
 
 /*=============================
