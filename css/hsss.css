@@ -295,11 +295,11 @@ ANIMATIONS
 
 /*=== Text Pop-Ups ===*/
 
-.os-animation{
+.os-animation-he, .os-animation-she, .os-audio-label-animation{
   opacity: 0;
 }
 
-.os-animation.animated{
+.os-animation-he.animated, .os-animation-she.animated, .os-audio-label-animation.animated{
   opacity: 1;
 }
 

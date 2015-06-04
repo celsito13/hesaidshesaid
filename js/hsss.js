@@ -4,9 +4,9 @@ $(document).ready(function() {
 	WAYPOINTS
 	========================================================*/
 
-	/*=== Animated Texts ===*/
+	/*=== "He" Animated Texts ===*/
 
-	function onScrollInit( items, trigger ) {
+	function onScrollInit_he( items, trigger ) {
 		items.each( function() {
 			var osElement = $(this),
 			osAnimationOffset = osElement.attr('data-os-animation-offset'),
@@ -29,6 +29,7 @@ $(document).ready(function() {
 			osTrigger.waypoint(function(direction) {
 				if (direction == 'down') {
 					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+					he_said_text_message_sound.play();
 				}
 				if (direction == 'up') {
 					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
@@ -39,11 +40,49 @@ $(document).ready(function() {
 		});
 	}
 
-	onScrollInit( $('.os-animation') );
+	onScrollInit_he( $('.os-animation-he') );
 
-	/*=== Top Label ===*/
+	/*=== "She" Animated Texts ===*/
 
-	function onScrollInit_toplabel( items, trigger ) {
+	function onScrollInit_she( items, trigger ) {
+		items.each( function() {
+			var osElement = $(this),
+			osAnimationOffset = osElement.attr('data-os-animation-offset'),
+			osAnimationClassDown = osElement.attr('data-os-animation-down'),
+			osAnimationClassUp = osElement.attr('data-os-animation-up'),
+			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDuration = osElement.attr('data-os-animation-duration');
+
+			osElement.css({
+				'-webkit-animation-delay':     osAnimationDelay,
+				'-moz-animation-delay':        osAnimationDelay,
+				'animation-delay':             osAnimationDelay,
+				'-webkit-animation-duration':  osAnimationDuration,
+				'-moz-animation-duration':     osAnimationDuration,
+				'animation-duration':          osAnimationDuration,
+			});
+
+			var osTrigger = ( trigger ) ? trigger : osElement;
+
+			osTrigger.waypoint(function(direction) {
+				if (direction == 'down') {
+					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+					she_said_text_message_sound.play();
+				}
+				if (direction == 'up') {
+					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
+				}
+			},{
+				offset: '40%'
+			});
+		});
+	}
+
+	onScrollInit_she( $('.os-animation-she') );
+
+	/*=== Intro Label Animation ===*/
+
+	function onScrollInit_introlabel( items, trigger ) {
 		items.each( function() {
 			var osElement = $(this),
 			osAnimationOffset = osElement.attr('data-os-animation-offset'),
@@ -76,14 +115,54 @@ $(document).ready(function() {
 		});
 	}
 
-	onScrollInit_toplabel( $('.os-label-animation') );
+	onScrollInit_introlabel( $('.os-intro-label-animation') );
 
-	/*=== Play Audio ===*/
+	/*=== Audio Label Animation ===*/
 
-	$('.play_audio_waypoint').waypoint(function(direction) {
-		number_exchange.playPause();
+	function onScrollInit_audio( items, trigger ) {
+		items.each( function() {
+			var osElement = $(this),
+			osAnimationOffset = osElement.attr('data-os-animation-offset'),
+			osAnimationClassDown = osElement.attr('data-os-animation-down'),
+			osAnimationClassUp = osElement.attr('data-os-animation-up'),
+			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDuration = osElement.attr('data-os-animation-duration');
+
+			osElement.css({
+				'-webkit-animation-delay':     osAnimationDelay,
+				'-moz-animation-delay':        osAnimationDelay,
+				'animation-delay':             osAnimationDelay,
+				'-webkit-animation-duration':  osAnimationDuration,
+				'-moz-animation-duration':     osAnimationDuration,
+				'animation-duration':          osAnimationDuration,
+			});
+
+			var osTrigger = ( trigger ) ? trigger : osElement;
+
+			osTrigger.waypoint(function(direction) {
+				if (direction == 'down') {
+					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+				}
+				if (direction == 'up') {
+					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
+				}
+			},{
+				offset: '40%'
+			});
+		});
+	}
+
+	onScrollInit_audio( $('.os-audio-label-animation') );
+
+	/*=== Play Number Exchange Audio ===*/
+
+	$('#number_exchange_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			number_exchange.play();
+			this.destroy()
+	    }
 	},{
-		offset:'30%'
+		offset:'40%',
 	});
 
 	/*========================================================
@@ -156,6 +235,18 @@ $(document).ready(function() {
 	WAVESURFER
 	========================================================*/
 
+	var he_said_text_message_sound = new Howl({
+		urls: ['audio/he_said_message.mp3']
+	});
+
+	var she_said_text_message_sound = new Howl({
+		urls: ['audio/she_said_message.mp3']
+	});
+
+	/*========================================================
+	WAVESURFER
+	========================================================*/
+
 	/*=== Number Exchange Waveform ===*/
 
 	var number_exchange = Object.create(WaveSurfer);
@@ -163,7 +254,8 @@ $(document).ready(function() {
 	number_exchange.init({
 	    container: '#number_exchange_audio',
 	    waveColor: '#4487c7',
-	    progressColor: '#eb5d4b'
+	    progressColor: '#eb5d4b',
+	    cursorColor: '#ffffff'
 	});
 
 	number_exchange.load('audio/number_exchange.mp3');
