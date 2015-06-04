@@ -395,14 +395,14 @@ a.play_pause_audio {
   margin: 0 auto;
 }
 
-a.play_pause_audio span#play {
+a.play_pause_audio span.play_icon {
   top: 11px;
   position: absolute;
   left: 20px;
   font-size: 20px;
 }
 
-a.play_pause_audio span#pause {
+a.play_pause_audio span.pause_icon {
   top: 11px;
   position: absolute;
   left: 17px;

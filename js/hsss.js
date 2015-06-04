@@ -154,17 +154,6 @@ $(document).ready(function() {
 
 	onScrollInit_audio( $('.os-audio-label-animation') );
 
-	/*=== Play Number Exchange Audio ===*/
-
-	$('#number_exchange_audio').waypoint(function(direction) {
-		if (direction == 'down') {
-			number_exchange.play();
-			this.destroy()
-	    }
-	},{
-		offset:'40%',
-	});
-
 	/*========================================================
 	HEADER OVERLAY
 	========================================================*/
@@ -232,8 +221,10 @@ $(document).ready(function() {
 	var s = skrollr.init();
 
 	/*========================================================
-	WAVESURFER
+	HOWL.JS
 	========================================================*/
+
+	/*=== Text Message Sounds ===*/
 
 	var he_said_text_message_sound = new Howl({
 		urls: ['audio/he_said_message.mp3']
@@ -244,10 +235,21 @@ $(document).ready(function() {
 	});
 
 	/*========================================================
+	Toggle Play/Pause buttons
+	========================================================*/
+
+    var playButton = document.querySelector('.play');
+    var pauseButton = document.querySelector('.pause');
+
+	/*========================================================
 	WAVESURFER
 	========================================================*/
 
-	/*=== Number Exchange Waveform ===*/
+	/*========================================================
+	NUMBER EXCHANGE AUDIO
+	========================================================*/
+
+	/*=== Waveform ===*/
 
 	var number_exchange = Object.create(WaveSurfer);
 
@@ -260,37 +262,81 @@ $(document).ready(function() {
 
 	number_exchange.load('audio/number_exchange.mp3');
 
-	/*=== Play Function Number Exchange ===*/
+	/*=== Auto Play Audio On Scroll ===*/
 
-	var GLOBAL_ACTIONS = {
-	    'play_number_exchange': function () {
-	        number_exchange.playPause();
-	    },
-	};
+	$('#number_exchange_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			number_exchange.play();
+			this.destroy()
+	    }
+	},{
+		offset:'40%',
+	});
 
-	/*=== Data Action Query Selector ===*/
+	/*=== Play / Pause Audio On Click Of Icon ===*/
 
-	[].forEach.call(document.querySelectorAll('[data-action]'), function (el) {
-        el.addEventListener('click', function (e) {
-            var action = e.currentTarget.dataset.action;
-            if (action in GLOBAL_ACTIONS) {
-                e.preventDefault();
-                GLOBAL_ACTIONS[action](e);
-            }
-        });
-    });
+	$("#number_exchange a.play_pause_audio").click(function(){
 
-	/*=== Toggle Play/Pause buttons ===*/
+		number_exchange.playPause();
 
-    var playButton = document.querySelector('#play');
-    var pauseButton = document.querySelector('#pause');
-    number_exchange.on('play', function () {
-        playButton.style.display = 'none';
-        pauseButton.style.display = '';
+	});
+
+	/*=== Toggle Play / Pause ===*/
+
+	number_exchange.on('play', function () {
+		$("#number_exchange a.play_pause_audio .play_icon").css("display","none");
+        $("#number_exchange a.play_pause_audio .pause_icon").css("display","block");
     });
     number_exchange.on('pause', function () {
-        playButton.style.display = '';
-        pauseButton.style.display = 'none';
+        $("#number_exchange a.play_pause_audio .play_icon").css("display","block");
+        $("#number_exchange a.play_pause_audio .pause_icon").css("display","none");
+    });
+
+	/*========================================================
+	FIRST IMPRESSIONS AUDIO
+	========================================================*/
+
+    /*=== Waveform ===*/
+
+	var first_impressions = Object.create(WaveSurfer);
+
+	first_impressions.init({
+	    container: '#first_impressions_audio',
+	    waveColor: '#4487c7',
+	    progressColor: '#eb5d4b',
+	    cursorColor: '#ffffff'
+	});
+
+	first_impressions.load('audio/first_impressions.mp3');
+
+	/*=== Auto Play Audio On Scroll ===*/
+
+	$('#first_impressions_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			first_impressions.play();
+			this.destroy()
+	    }
+	},{
+		offset:'40%',
+	});
+
+	/*=== Play / Pause Audio On Click Of Icon ===*/
+
+	$("#first_impressions a.play_pause_audio").click(function(){
+
+		first_impressions.playPause();
+
+	});
+
+	/*=== Toggle Play / Pause ===*/
+
+	first_impressions.on('play', function () {
+		$("#first_impressions a.play_pause_audio .play_icon").css("display","none");
+        $("#first_impressions a.play_pause_audio .pause_icon").css("display","block");
+    });
+    first_impressions.on('pause', function () {
+        $("#first_impressions a.play_pause_audio .play_icon").css("display","block");
+        $("#first_impressions a.play_pause_audio .pause_icon").css("display","none");
     });
 
 });
