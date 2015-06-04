@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-	/*============================
+	/*========================================================
 	WAYPOINTS
-	============================*/
+	========================================================*/
 
 	/*=== Animated Texts ===*/
 
@@ -78,9 +78,17 @@ $(document).ready(function() {
 
 	onScrollInit_toplabel( $('.os-label-animation') );
 
-	/*============================
+	/*=== Play Audio ===*/
+
+	$('.play_audio_waypoint').waypoint(function(direction) {
+		number_exchange.playPause();
+	},{
+		offset:'30%'
+	});
+
+	/*========================================================
 	HEADER OVERLAY
-	============================*/
+	========================================================*/
 
 	(function() {
 	var triggerBttn = document.getElementById( 'trigger-overlay' ),
@@ -132,35 +140,31 @@ $(document).ready(function() {
 		}, 700);
 	});
 
-	/*============================
+	/*========================================================
 	SMOOTH SCROLL
-	============================*/
+	========================================================*/
 
 	$('.overlay ul li a').smoothScroll({offset: -60});
 
-	/*============================
+	/*========================================================
 	SKROLLR
-	============================*/
+	========================================================*/
 
 	var s = skrollr.init();
 
-	/*============================
+	/*========================================================
 	WAVESURFER
-	============================*/
+	========================================================*/
 
 	/*=== Number Exchange Waveform ===*/
 
 	var number_exchange = Object.create(WaveSurfer);
 
 	number_exchange.init({
-	    container: '#wave',
+	    container: '#number_exchange_audio',
 	    waveColor: '#4487c7',
 	    progressColor: '#eb5d4b'
 	});
-
-	/* number_exchange.on('ready', function () {
-	    number_exchange.play();
-	}); */
 
 	number_exchange.load('audio/number_exchange.mp3');
 
