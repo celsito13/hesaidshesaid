@@ -49,7 +49,6 @@ p, h1, h2, h3 {
 CONTAINER
 =============================*/
 .page_container {
-  padding-top: 53px;
   overflow: hidden;
 }
 
@@ -59,10 +58,10 @@ CONTAINER
   position: relative;
   top: 0px;
   padding: 100px 0px;
-  background: -webkit-linear-gradient(left, #eb5d4b 50%, #4487c7 50%);
-  background: -moz-linear-gradient(90deg, #eb5d4b 50%, #4487c7 50%);
-  background: -o-linear-gradient(90deg, #eb5d4b 50%, #4487c7 50%);
-  background: linear-gradient(90deg, #eb5d4b 50%, #4487c7 50%);
+  background: -webkit-linear-gradient(left, #4487c7 50%, #eb5d4b 50%);
+  background: -moz-linear-gradient(90deg, #4487c7 50%, #eb5d4b 50%);
+  background: -o-linear-gradient(90deg, #4487c7 50%, #eb5d4b 50%);
+  background: linear-gradient(90deg, #4487c7 50%, #eb5d4b 50%);
 }
 
 .colored_container h2 {
@@ -96,25 +95,25 @@ TIMELINE
 }*/
 
 .left_dot {
-  width: 13px;
-  height: 13px;
+  width: 20px;
+  height: 20px;
   display: block;
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
   top: 6px;
-  right: -21px;
+  right: -26px;
 }
 
 .right_dot {
-  width: 13px;
-  height: 13px;
+  width: 20px;
+  height: 20px;
   display: block;
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
   top: 6px;
-  left: -21px;
+  left: -26px;
 }
 
 span.left_timeline_dot {
@@ -162,10 +161,12 @@ HEADER
 
 .he_said_header {
   text-align: right;
+  background: #4487c7;
 }
 
 .she_said_header {
   text-align: left;
+  background: #eb5d4b;
 }
 
 .he_said_header, .she_said_header {
@@ -173,14 +174,6 @@ HEADER
   width: 50%;
   float: left;
   padding: 0px 20px
-}
-
-.he_said_header {
-	background: #eb5d4b;
-}
-
-.she_said_header {
-	background: #4487c7;
 }
 
 .header i.fa.fa-bars {
@@ -294,17 +287,13 @@ SECTIONS
 =============================*/
 
 .map_container {
-  position: relative;
-  background-image: url('../img/placeholder_map.png');
-  background-attachment: fixed;
-  background-size: cover;
-  height: 500px;
-  background-position: 0px 200px;
 }
 
 /*=============================
 ANIMATIONS
 =============================*/
+
+/*=== Text Pop-Ups ===*/
 
 .os-animation{
   opacity: 0;
@@ -314,6 +303,74 @@ ANIMATIONS
   opacity: 1;
 }
 
+.dot {
+  cursor: pointer;
+  display: block;
+  -webkit-transition: all .8s ease;
+  -moz-transition: all .8s ease;
+  -ms-transition: all .8s ease;
+  -o-transition: all .8s ease;
+  transition: all .8s ease;
+}
+
+.dot:hover {
+  border: 3px solid #ffffff;
+  background-color: transparent;
+}
+
+@-webkit-keyframes text_hover {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes text_hover {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.dot:hover ~ h2.text_message {
+
+  -webkit-animation-name: text_hover;
+  animation-name: text_hover;
+
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+
+}
+
 /*=============================
 PARALLAX
 =============================*/
@@ -321,4 +378,33 @@ PARALLAX
 .fixed_container {
   position: fixed;
   width: 100%;
+}
+
+/*=============================
+AUDIO
+=============================*/
+
+a.play_pause_audio {
+  background-color: #333333;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: block;
+  color: #e1e1e1;
+  position: relative;
+  margin: 0 auto;
+}
+
+a.play_pause_audio span#play {
+  top: 11px;
+  position: absolute;
+  left: 20px;
+  font-size: 20px;
+}
+
+a.play_pause_audio span#pause {
+  top: 11px;
+  position: absolute;
+  left: 17px;
+  font-size: 20px;
 }
