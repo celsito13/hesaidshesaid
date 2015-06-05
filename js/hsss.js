@@ -155,6 +155,34 @@ $(document).ready(function() {
 	onScrollInit_audio( $('.os-audio-label-animation') );
 
 	/*========================================================
+	FOOD ICON ANIMATIONS
+	========================================================*/
+
+	$('.show_eggs_icon').click(function(){
+		$('img.show_food_icon_image').removeClass('show_food_icon_image');
+		$('.eggs_icon').addClass('show_food_icon_image');
+
+		$('li a.active_icon_toggle').removeClass('active_icon_toggle');
+		$(this).addClass('active_icon_toggle');
+	});
+
+	$('.show_pancakes_icon').click(function(){
+		$('img.show_food_icon_image').removeClass('show_food_icon_image');
+		$('.pancakes_icon').addClass('show_food_icon_image');
+
+		$('li a.active_icon_toggle').removeClass('active_icon_toggle');
+		$(this).addClass('active_icon_toggle');
+	});
+
+	$('.show_chicken_icon').click(function(){
+		$('img.show_food_icon_image').removeClass('show_food_icon_image');
+		$('.chicken_icon').addClass('show_food_icon_image');
+
+		$('li a.active_icon_toggle').removeClass('active_icon_toggle');
+		$(this).addClass('active_icon_toggle');
+	});
+
+	/*========================================================
 	HEADER OVERLAY
 	========================================================*/
 
@@ -235,13 +263,6 @@ $(document).ready(function() {
 	});
 
 	/*========================================================
-	Toggle Play/Pause buttons
-	========================================================*/
-
-    var playButton = document.querySelector('.play');
-    var pauseButton = document.querySelector('.pause');
-
-	/*========================================================
 	WAVESURFER
 	========================================================*/
 
@@ -267,10 +288,19 @@ $(document).ready(function() {
 	$('#number_exchange_audio').waypoint(function(direction) {
 		if (direction == 'down') {
 			number_exchange.play();
-			this.destroy()
 	    }
 	},{
 		offset:'40%',
+	});
+
+	/*=== Stop Audio When User Scrolls Past Player ===*/
+
+	$('#number_exchange_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			number_exchange.pause();
+	    }
+	},{
+		offset:'0',
 	});
 
 	/*=== Play / Pause Audio On Click Of Icon ===*/
@@ -314,10 +344,19 @@ $(document).ready(function() {
 	$('#first_impressions_audio').waypoint(function(direction) {
 		if (direction == 'down') {
 			first_impressions.play();
-			this.destroy()
 	    }
 	},{
 		offset:'40%',
+	});
+
+	/*=== Stop Audio When User Scrolls Past Player ===*/
+
+	$('#first_impressions_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			first_impressions.pause();
+	    }
+	},{
+		offset:'0',
 	});
 
 	/*=== Play / Pause Audio On Click Of Icon ===*/
@@ -337,6 +376,62 @@ $(document).ready(function() {
     first_impressions.on('pause', function () {
         $("#first_impressions a.play_pause_audio .play_icon").css("display","block");
         $("#first_impressions a.play_pause_audio .pause_icon").css("display","none");
+    });
+
+    /*========================================================
+	CUDDLE ROOM AUDIO
+	========================================================*/
+
+    /*=== Waveform ===*/
+
+	var cuddle_room = Object.create(WaveSurfer);
+
+	cuddle_room.init({
+	    container: '#cuddle_room_audio',
+	    waveColor: '#4487c7',
+	    progressColor: '#eb5d4b',
+	    cursorColor: '#ffffff'
+	});
+
+	cuddle_room.load('audio/cuddle_room.mp3');
+
+	/*=== Auto Play Audio On Scroll ===*/
+
+	$('#cuddle_room_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			cuddle_room.play();
+	    }
+	},{
+		offset:'40%',
+	});
+
+	/*=== Stop Audio When User Scrolls Past Player ===*/
+
+	$('#cuddle_room_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			cuddle_room.pause();
+	    }
+	},{
+		offset:'0',
+	});
+
+	/*=== Play / Pause Audio On Click Of Icon ===*/
+
+	$("#cuddle_room a.play_pause_audio").click(function(){
+
+		cuddle_room.playPause();
+
+	});
+
+	/*=== Toggle Play / Pause ===*/
+
+	cuddle_room.on('play', function () {
+		$("#cuddle_room a.play_pause_audio .play_icon").css("display","none");
+        $("#cuddle_room a.play_pause_audio .pause_icon").css("display","block");
+    });
+    cuddle_room.on('pause', function () {
+        $("#cuddle_room a.play_pause_audio .play_icon").css("display","block");
+        $("#cuddle_room a.play_pause_audio .pause_icon").css("display","none");
     });
 
 });

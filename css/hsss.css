@@ -12,6 +12,10 @@ GENERAL
   text-align: right;
 }
 
+/*=============================
+ELEMENTS
+=============================*/
+
 /*=== Labels ===*/
 
 .section_label {
@@ -21,12 +25,104 @@ GENERAL
   text-transform: uppercase;
 }
 
-.section_label.top_label {
+.ribbon_label.top_label {
   position: absolute;
   top: 0;
-  left: 50%;
-  margin-left: -200px;
 }
+
+span.label_title {
+  color: #333333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ribbon_label {
+  position: absolute;
+  background: #fff;
+  text-align: center;
+  padding: 10px 50px;
+}
+
+.ribbon_label:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -15px;
+  width: 0;
+  height: 0;
+  border-right: 15px solid transparent;
+  border-top: 25px solid #ffffff;
+  border-bottom: 25px solid #fff;
+}
+
+/*=== Icons ===*/
+
+.section_label i.fa {
+  color: #999999;
+}
+
+img.car_icon {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+}
+
+/*=== Question Marks ===*/
+
+.q_mark_1 {
+  position: absolute;
+  right: 25%;
+}
+
+.q_mark_2 {
+  position: absolute;
+  right: 20%;
+}
+
+.q_mark_3 {
+  position: absolute;
+  right: 30%;
+}
+
+/*=== Food Icons ===*/
+
+.animated_food_icon {
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+.active_icon_toggle {
+  border-bottom: 3px solid #ffffff;
+}
+
+.eggs_icon, .pancakes_icon, .chicken_icon {
+  display: none;
+}
+
+.show_food_icon_image {
+  display: block;
+}
+
+.food_icon_container {
+  display: block;
+  position: absolute;
+  left: 60%;
+  text-align: center;
+}
+
+.food_icon_container ul {
+  margin-left: 0px;
+}
+
+.food_icon_container ul li {
+  display: inline-block;
+  margin-right: 13px;
+}
+
+.food_icon_container ul li a {
+  color: #fff;
+}
+
 
 /*=============================
 FONTS
@@ -39,10 +135,15 @@ body, p, h1, h2 {
 h1 {
   font-size: 40px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 p, h1, h2, h3 {
   margin: 10px 0px;
+}
+
+p {
+  font-size: 18px;
 }
 
 /*=============================
@@ -94,6 +195,30 @@ TIMELINE
   height: 100%;
 }*/
 
+p.he_time {
+  display: inline-block;
+  background-image: url('../img/he_arrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 5px 18px;
+  background-position: center;
+  margin-bottom: 0px;
+  color: #b3c7ff;
+  font-size: 15px;
+}
+
+p.she_time {
+  display: inline-block;
+  background-image: url('../img/she_arrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 5px 25px;
+  background-position: 0px;
+  margin-bottom: 0px;
+  color: #ffb6b0;
+  font-size: 15px;
+}
+
 .left_dot {
   width: 20px;
   height: 20px;
@@ -101,8 +226,8 @@ TIMELINE
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: 6px;
-  right: -26px;
+  top: 17px;
+  right: -24px;
 }
 
 .right_dot {
@@ -112,8 +237,8 @@ TIMELINE
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: 6px;
-  left: -26px;
+  top: 17px;
+  left: -24px;
 }
 
 span.left_timeline_dot {
@@ -156,7 +281,7 @@ HEADER
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .he_said_header {
@@ -216,31 +341,18 @@ HEADER OVERLAY
 
 /*=== Menu style ===*/
 
-.overlay nav {
-	text-align: center;
-	position: relative;
-	top: 50%;
-	height: 60%;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
-
-.overlay ul {
-	list-style: none;
-	padding: 0;
-	margin: 0 auto;
-	display: inline-block;
-	height: 100%;
-	position: relative;
-}
-
 .overlay ul li {
 	display: block;
-	height: 20%;
-	height: calc(100% / 5);
 	min-height: 54px;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+
+.overlay_container {
+  position: relative;
+  display: block;
+  top: 50%;
+  margin-top: -200px;
 }
 
 .overlay ul li a {
@@ -254,7 +366,7 @@ HEADER OVERLAY
 
 .overlay ul li a:hover,
 .overlay ul li a:focus {
-	color: #f0f0f0;
+	color: #C5C5C5;
 }
 
 .overlay i.fa.fa-times.fa-2x {
@@ -280,13 +392,6 @@ HEADER OVERLAY
 	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
 	transition: transform 0.4s, opacity 0.4s;
 	z-index: 9999;
-}
-
-/*=============================
-SECTIONS
-=============================*/
-
-.map_container {
 }
 
 /*=============================
