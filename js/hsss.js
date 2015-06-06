@@ -110,12 +110,49 @@ $(document).ready(function() {
 					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
 				}
 			},{
-				offset: '20%'
+				offset: '13%'
 			});
 		});
 	}
 
 	onScrollInit_introlabel( $('.os-intro-label-animation') );
+
+	/*=== Intro Text Animation ===*/
+
+	function onScrollInit_introText( items, trigger ) {
+		items.each( function() {
+			var osElement = $(this),
+			osAnimationOffset = osElement.attr('data-os-animation-offset'),
+			osAnimationClassDown = osElement.attr('data-os-animation-down'),
+			osAnimationClassUp = osElement.attr('data-os-animation-up'),
+			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDuration = osElement.attr('data-os-animation-duration');
+
+			osElement.css({
+				'-webkit-animation-delay':     osAnimationDelay,
+				'-moz-animation-delay':        osAnimationDelay,
+				'animation-delay':             osAnimationDelay,
+				'-webkit-animation-duration':  osAnimationDuration,
+				'-moz-animation-duration':     osAnimationDuration,
+				'animation-duration':          osAnimationDuration,
+			});
+
+			var osTrigger = ( trigger ) ? trigger : osElement;
+
+			osTrigger.waypoint(function(direction) {
+				if (direction == 'down') {
+					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+				}
+				if (direction == 'up') {
+					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
+				}
+			},{
+				offset: '50%'
+			});
+		});
+	}
+
+	onScrollInit_introText( $('.os-intro-text-animation') );
 
 	/*=== Audio Label Animation ===*/
 
@@ -239,6 +276,8 @@ $(document).ready(function() {
 	/*========================================================
 	SMOOTH SCROLL
 	========================================================*/
+
+	$('body a').smoothScroll({speed: 2000});
 
 	$('.overlay ul li a').smoothScroll({offset: -60});
 
@@ -433,5 +472,122 @@ $(document).ready(function() {
         $("#cuddle_room a.play_pause_audio .play_icon").css("display","block");
         $("#cuddle_room a.play_pause_audio .pause_icon").css("display","none");
     });
+
+    /*========================================================
+	NIGHT CAP AUDIO
+	========================================================*/
+
+    /*=== Waveform ===*/
+
+	var night_cap = Object.create(WaveSurfer);
+
+	night_cap.init({
+	    container: '#night_cap_audio',
+	    waveColor: '#4487c7',
+	    progressColor: '#eb5d4b',
+	    cursorColor: '#ffffff'
+	});
+
+	night_cap.load('audio/night_cap.mp3');
+
+	/*=== Auto Play Audio On Scroll ===*/
+
+	$('#night_cap_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			night_cap.play();
+	    }
+	},{
+		offset:'40%',
+	});
+
+	/*=== Stop Audio When User Scrolls Past Player ===*/
+
+	$('#night_cap_audio').waypoint(function(direction) {
+		if (direction == 'down') {
+			night_cap.pause();
+	    }
+	},{
+		offset:'0',
+	});
+
+	/*=== Play / Pause Audio On Click Of Icon ===*/
+
+	$("#night_cap a.play_pause_audio").click(function(){
+
+		night_cap.playPause();
+
+	});
+
+	/*=== Toggle Play / Pause ===*/
+
+	night_cap.on('play', function () {
+		$("#night_cap a.play_pause_audio .play_icon").css("display","none");
+        $("#night_cap a.play_pause_audio .pause_icon").css("display","block");
+    });
+    night_cap.on('pause', function () {
+        $("#night_cap a.play_pause_audio .play_icon").css("display","block");
+        $("#night_cap a.play_pause_audio .pause_icon").css("display","none");
+    });
+
+    /*========================================================
+	BACKSTRETCH
+	========================================================*/
+
+	/*=== Number Exchange ===*/
+
+	$("#number_exchange").backstretch([
+	   "img/number_exchange_1.png",
+	   "img/number_exchange_2.png",
+	   "img/number_exchange_3.png"    
+	], {duration: 4000, fade: 1000});
+
+	/*=== First Impressions ===*/
+
+	$("#first_impressions").backstretch([
+	   "img/first_impression_1.png",
+	   "img/first_impression_2.png",
+	   "img/first_impression_3.png"    
+	], {duration: 4000, fade: 1000});
+
+	/*=== Cuddle Room ===*/
+
+	$("#cuddle_room").backstretch([
+	   "img/cuddle_room_1.png",
+	   "img/cuddle_room_2.png"   
+	], {duration: 4000, fade: 1000});
+
+	/*=== Night Cap ===*/
+
+	$("#night_cap").backstretch([
+	   "img/night_cap_1.png",
+	   "img/night_cap_2.png",
+	   "img/night_cap_3.png"   
+	], {duration: 4000, fade: 1000});
+
+	/*========================================================
+	VIDE
+	========================================================*/
+
+	/*=== Intro Video ===*/
+
+	$('#intro_video_container').vide('video/intro_video', {
+	  muted: true,
+	  loop: true,
+	  autoplay: true,
+	  position: '50% 50%', // Similar to the CSS `background-position` property.
+	  posterType: 'detect', // Poster image type. "detect" — auto-detection; "none" — no poster; "jpg", "png", "gif",... - extensions.
+	  resizing: true // Auto-resizing, read: https://github.com/VodkaBears/Vide#resizing
+	});
+
+	/*=== Conclusion Video ===*/
+
+	$('#conclusion_video_container').vide('video/conclusion_video', {
+	  muted: true,
+	  loop: true,
+	  autoplay: true,
+	  position: '50% 50%', // Similar to the CSS `background-position` property.
+	  posterType: 'detect', // Poster image type. "detect" — auto-detection; "none" — no poster; "jpg", "png", "gif",... - extensions.
+	  resizing: true // Auto-resizing, read: https://github.com/VodkaBears/Vide#resizing
+	});
 
 });

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>He Said She Said</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/fadeshow/jquery.fadeshow-0.1.1.min.css" />
     <link rel="stylesheet" href="css/hsss.css" />
     <link rel="stylesheet" href="css/animate/animate.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -36,23 +37,31 @@
 
       <!-- INTRO -->
 
-      <div class="colored_container" style="top: 54px">
+      <div class="colored_container" style="top:4px">
 
         <div class="ribbon_label os-intro-label-animation" data-os-animation-down="slideOutLeft" data-os-animation-up="slideInLeft" data-os-animation-delay="0s" data-os-animation-duration=".3s">
-            <i class="fa fa-clock-o fa-lg"></i> <span class="label_title">Hour 1</span>
+            <span class="label_title">Introduction</span>
         </div>
 
       </div>
 
-      <div class="map_container">
+      <div class="video_container" id="intro_video_container">
 
-        <img src="img/placeholder_map.png" />
+        <div class="row">
+
+          <div class="large-12 columns text-center os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
+            <p>John, a thirty-something tech entrepreneur, first met Sue, a twenty-something freelance writer, at a fairytale-themed Bushwick rave. At the time of meeting, they were both in open relationships.</p>
+            <a href="#start_story"><i class="fa fa-angle-down fa-3x"></i></a>
+          </div>
+
+        </div>
+
 
       </div>
 
       <!-- FIRST INTERACTION -->
 
-      <div class="colored_container">
+      <div class="colored_container" id="start_story">
 
         <div class="row">
           
@@ -212,7 +221,7 @@
 
           </div>
 
-          <img class="car_icon" src="img/car_icon.png" data-200-top="right: 300px;" data-10-top="right:-200px"></img>
+          <img class="couch_icon" src="img/cuddle_couch.png" data-200-top="right: 300px;" data-10-top="right:-200px"></img>
 
         </div>
 
@@ -291,6 +300,58 @@
 
     </div>
 
+    <!-- NIGHT CAP AUDIO -->
+
+    <div class="audio_container" id="night_cap">
+
+      <div class="os-audio-label-animation ribbon_label top_label" data-os-animation-down="slideInLeft" data-os-animation-up="slideOutLeft" data-os-animation-delay="0s" data-os-animation-duration="1s">
+          <i class="fa fa-volume-up fa-lg"></i> <span class="label_title">Night Cap (02:14)</span>
+      </div>
+
+      <div class="row">
+
+        <!-- Audio Waveform -->
+
+        <div id="night_cap_audio"></div>
+
+        <!-- Play / Pause -->
+
+        <a class="play_pause_audio">
+
+          <span class="play_icon">
+            <i class="fa fa-play"></i>
+          </span>
+
+          <span class="pause_icon" style="display: none">
+            <i class="fa fa-pause"></i>
+          </span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- BREAK AFTER NIGHT CAP -->
+
+    <div class="colored_container">
+      <img class="couch_icon" src="img/car_icon.png" data-top="right: 300px;" data--100-top="right:-200px"></img>
+    </div>
+
+    <!-- CONCLUSION -->
+
+    <div class="video_container" id="conclusion_video_container">
+
+      <div class="row">
+
+        <div class="large-12 columns text-center os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
+          <p>John and Sue have since left their respective partners and are now in a long-distance relationship. They have chosen not to connect on social media.</p>
+        </div>
+
+      </div>
+
+    </div>
+
     <!-- NAVIGATION -->
 
     <div class="overlay overlay-scale">
@@ -302,9 +363,12 @@
           <div class="small-6 small-centered columns text-center">
             <nav>
               <ul>
+                <li><a href="#intro_video_container">Introduction</a></li>
                 <li><a href="#number_exchange">Number Exchange</a></li>
                 <li><a href="#first_impressions">First Impressions</a></li>
                 <li><a href="#cuddle_room">Cuddle Room</a></li>
+                <li><a href="#night_cap">Night Cap</a></li>
+                <li><a href="#conclusion_video_container">Conclusion</a></li>
               </ul>
             </nav>
           </div>
@@ -331,6 +395,8 @@
     <script src="js/skrollr/skrollr.min.js"></script>
     <script src="js/wavesurfer/wavesurfer.min.js"></script>
     <script src="js/howler/howler.min.js"></script>
+    <script src="js/vide/jquery.vide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
     <script src="//use.typekit.net/jyf0kku.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
     <script src="js/hsss.js"></script>
