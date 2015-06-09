@@ -224,7 +224,7 @@ $(document).ready(function() {
 	========================================================*/
 
 	(function() {
-	var triggerBttn = document.getElementById( 'trigger-overlay' ),
+	var triggerBttn = document.getElementsByClassName( 'trigger-overlay' ),
 		overlay = document.querySelector( 'div.overlay' ),
 		closeBttn = overlay.querySelector( '.overlay-close' );
 		transEndEventNames = {
@@ -260,7 +260,10 @@ $(document).ready(function() {
 		}
 	}
 
-	triggerBttn.addEventListener( 'click', toggleOverlay );
+	for(var i=0;i<triggerBttn.length;i++){
+        triggerBttn[i].addEventListener('click', toggleOverlay, false);
+    }
+
 	closeBttn.addEventListener( 'click', toggleOverlay );
 	
 	})();
@@ -546,7 +549,8 @@ $(document).ready(function() {
 	$("#first_impressions").backstretch([
 	   "img/first_impression_1.png",
 	   "img/first_impression_2.png",
-	   "img/first_impression_3.png"    
+	   "img/first_impression_3.png",
+	   "img/first_impression_4.png"    
 	], {duration: 4000, fade: 1000});
 
 	/*=== Cuddle Room ===*/
@@ -561,7 +565,9 @@ $(document).ready(function() {
 	$("#night_cap").backstretch([
 	   "img/night_cap_1.png",
 	   "img/night_cap_2.png",
-	   "img/night_cap_3.png"   
+	   "img/night_cap_3.png",
+	   "img/night_cap_4.png",
+	   "img/night_cap_5.png"   
 	], {duration: 4000, fade: 1000});
 
 	/*========================================================
@@ -589,5 +595,6 @@ $(document).ready(function() {
 	  posterType: 'detect', // Poster image type. "detect" — auto-detection; "none" — no poster; "jpg", "png", "gif",... - extensions.
 	  resizing: true // Auto-resizing, read: https://github.com/VodkaBears/Vide#resizing
 	});
+
 
 });

@@ -150,6 +150,16 @@ a {
   color: #fff;
 }
 
+a.primary_link {
+  color: #fff;
+  margin-right: 10px;
+}
+
+a.primary_link:hover, a.primary_link:focus, a.primary_link:active {
+  color: #fff;
+  border-bottom: 3px solid #ffffff;
+}
+
 /*=============================
 CONTAINER
 =============================*/
@@ -322,7 +332,7 @@ HEADER
 
 .he_said_header {
   text-align: right;
-  background: #4487c7;
+  background: #v;
 }
 
 .she_said_header {
@@ -548,6 +558,54 @@ a.play_pause_audio span.pause_icon {
   position: absolute;
   left: 17px;
   font-size: 20px;
+}
+
+/*=============================
+INTRODUCTION
+=============================*/
+
+.introduction_container {
+  display: block;
+  overflow: auto;
+}
+
+.introduction_container .left_side, .introduction_container .right_side {
+  float: left;
+  width: 50%;
+  position: relative;
+  display: block;
+}
+
+.introduction_container .left_side img, .introduction_container .right_side img {
+  width: 100%;
+}
+
+.he_intro_left {
+  background-image: url('../img/he_intro_left.png');
+  background-size: cover;
+  height: 500px;
+  display: block;
+}
+
+.she_intro_left {
+  background-image: url('../img/she_intro_left.png');
+  height: 500px;
+  display: block;
+  background-size: cover;
+}
+
+.he_intro_right {
+  background-image: url('../img/he_intro_right.png');
+  background-size: cover;
+  height: 500px;
+  display: block;
+}
+
+.she_intro_right {
+  background-image: url('../img/she_intro_right.png');
+  height: 500px;
+  display: block;
+  background-size: cover;
 }
 
 /*=============================
