@@ -147,7 +147,7 @@ $(document).ready(function() {
 					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
 				}
 			},{
-				offset: '50%'
+				offset: '40%'
 			});
 		});
 	}
@@ -280,7 +280,7 @@ $(document).ready(function() {
 	SMOOTH SCROLL
 	========================================================*/
 
-	$('body a').smoothScroll({speed: 2000});
+	$('body a').smoothScroll({speed: 2000, offset: -60});
 
 	$('.overlay ul li a').smoothScroll({offset: -60});
 
@@ -288,7 +288,10 @@ $(document).ready(function() {
 	SKROLLR
 	========================================================*/
 
-	var s = skrollr.init();
+	var s = skrollr.init( {
+		smoothScrolling: true,
+		smoothScrollingDuration: 1000
+	});
 
 	/*========================================================
 	HOWL.JS
