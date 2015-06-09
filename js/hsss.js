@@ -290,7 +290,6 @@ $(document).ready(function() {
 
 	var s = skrollr.init( {
 		smoothScrolling: true,
-		smoothScrollingDuration: 1000
 	});
 
 	/*========================================================
