@@ -191,6 +191,29 @@ $(document).ready(function() {
 
 	onScrollInit_audio( $('.os-audio-label-animation') );
 
+	/*=== Map Line Animation ===*/
+
+	function onScrollInit_mapline( items, trigger ) {
+		items.each( function() {
+			var osElement = $(this);
+
+			var osTrigger = ( trigger ) ? trigger : osElement;
+
+			osTrigger.waypoint(function(direction) {
+				if (direction == 'down') {
+					osElement.attr("class", "the_line_animation os-line-animation dash");
+				}
+				if (direction == 'up') {
+					osElement.attr("class", "the_line_animation os-line-animation dash_out");
+				}
+			},{
+				offset: '50%'
+			});
+		});
+	}
+
+	onScrollInit_mapline( $('.os-line-animation') );
+
 	/*========================================================
 	FOOD ICON ANIMATIONS
 	========================================================*/
@@ -551,7 +574,6 @@ $(document).ready(function() {
 	$("#first_impressions").backstretch([
 	   "img/first_impression_1.png",
 	   "img/first_impression_2.png",
-	   "img/first_impression_3.png",
 	   "img/first_impression_4.png"    
 	], {duration: 4000, fade: 1000});
 

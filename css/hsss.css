@@ -625,6 +625,117 @@ INTRODUCTION
 }
 
 /*=============================
+MAP
+=============================*/
+
+/*=== Map Container ===*/
+
+.map_effect {
+  position: relative;
+  display: block;
+  height: 600px;
+}
+
+/*=== Zoomed Map of Meserole ===*/
+
+.zoomed_map {
+  background-image: url('../img/placeholder_map.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: 0px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*=== SVG Map container ===*/
+
+.line_animation_map {
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+}
+
+/*=== Line Settings ===*/
+
+.the_line_animation {
+  stroke-width: 3px;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+}
+
+/*=== Line Animation to Open line ===*/
+
+.dash {
+  -webkit-animation: dash 5s both;
+  -moz-o-animation: dash 5s both;
+  -o-animation: dash 5s both;
+  animation: dash 5s both;
+}
+
+@-webkit-keyframes dash {
+  from { stroke-dashoffset: 500; }
+  to { stroke-dashoffset: 0; }
+}
+
+@-moz-keyframes dash {
+  from { stroke-dashoffset: 500; }
+  to { stroke-dashoffset: 0; }
+}
+
+@-o-keyframes dash {
+  from { stroke-dashoffset: 500; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 500; }
+  to { stroke-dashoffset: 0; }
+}
+
+/*=== Line Animation to Close line ===*/
+
+.dash_out {
+  -webkit-animation: dash_out 1s both;
+  -moz-o-animation: dash_out 1s both;
+  -o-animation: dash_out 1s both;
+  animation: dash_out 1s both;
+}
+
+@-webkit-keyframes dash_out {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 500; }
+}
+
+@-moz-keyframes dash_out {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 500; }
+}
+
+@-o-keyframes dash_out {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 500; }
+}
+
+@keyframes dash_out {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 500; }
+}
+
+/*=== Set Opacity of Line ===*/
+
+.os-line-animation {
+  opacity: 0;
+}
+
+.os-line-animation.dash, .os-line-animation.dash_out {
+  opacity: 1;
+}
+
+/*=============================
 BACKGROUND IMAGE FADE
 =============================*/
 
