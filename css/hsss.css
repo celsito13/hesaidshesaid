@@ -448,11 +448,11 @@ ANIMATIONS
 
 /*=== Text Pop-Ups ===*/
 
-.os-animation-he, .os-animation-she, .os-audio-label-animation{
+.os-animation-he, .os-animation-she, .os-audio-label-animation, .os-map-label-animation{
   opacity: 0;
 }
 
-.os-animation-he.animated, .os-animation-she.animated, .os-audio-label-animation.animated{
+.os-animation-he.animated, .os-animation-she.animated, .os-audio-label-animation.animated, .os-map-label-animation.animated{
   opacity: 1;
 }
 
@@ -704,6 +704,12 @@ MAP
   position: relative;
   display: block;
   height: 600px;
+}
+
+/*=== Map Label ===*/
+
+.map_effect .os-map-label-animation {
+  z-index: 99;
 }
 
 /*=== Zoomed Map of Meserole ===*/

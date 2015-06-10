@@ -191,6 +191,43 @@ $(document).ready(function() {
 
 	onScrollInit_audio( $('.os-audio-label-animation') );
 
+	/*=== Map Label Animation ===*/
+
+	function onScrollInit_map_label( items, trigger ) {
+		items.each( function() {
+			var osElement = $(this),
+			osAnimationOffset = osElement.attr('data-os-animation-offset'),
+			osAnimationClassDown = osElement.attr('data-os-animation-down'),
+			osAnimationClassUp = osElement.attr('data-os-animation-up'),
+			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDuration = osElement.attr('data-os-animation-duration');
+
+			osElement.css({
+				'-webkit-animation-delay':     osAnimationDelay,
+				'-moz-animation-delay':        osAnimationDelay,
+				'animation-delay':             osAnimationDelay,
+				'-webkit-animation-duration':  osAnimationDuration,
+				'-moz-animation-duration':     osAnimationDuration,
+				'animation-duration':          osAnimationDuration,
+			});
+
+			var osTrigger = ( trigger ) ? trigger : osElement;
+
+			osTrigger.waypoint(function(direction) {
+				if (direction == 'down') {
+					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+				}
+				if (direction == 'up') {
+					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
+				}
+			},{
+				offset: '70%'
+			});
+		});
+	}
+
+	onScrollInit_map_label( $('.os-map-label-animation') );
+
 	/*=== Map Line Animation ===*/
 
 	function onScrollInit_mapline( items, trigger ) {
