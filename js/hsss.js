@@ -12,7 +12,7 @@ $(document).ready(function() {
 			osAnimationOffset = osElement.attr('data-os-animation-offset'),
 			osAnimationClassDown = osElement.attr('data-os-animation-down'),
 			osAnimationClassUp = osElement.attr('data-os-animation-up'),
-			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDelay = osElement.attr('data-os-animation-delay'),
 			osAnimationDuration = osElement.attr('data-os-animation-duration');
 
 			osElement.css({
@@ -50,7 +50,7 @@ $(document).ready(function() {
 			osAnimationOffset = osElement.attr('data-os-animation-offset'),
 			osAnimationClassDown = osElement.attr('data-os-animation-down'),
 			osAnimationClassUp = osElement.attr('data-os-animation-up'),
-			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDelay = osElement.attr('data-os-animation-delay'),
 			osAnimationDuration = osElement.attr('data-os-animation-duration');
 
 			osElement.css({
@@ -88,7 +88,7 @@ $(document).ready(function() {
 			osAnimationOffset = osElement.attr('data-os-animation-offset'),
 			osAnimationClassDown = osElement.attr('data-os-animation-down'),
 			osAnimationClassUp = osElement.attr('data-os-animation-up'),
-			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDelay = osElement.attr('data-os-animation-delay'),
 			osAnimationDuration = osElement.attr('data-os-animation-duration');
 
 			osElement.css({
@@ -125,7 +125,7 @@ $(document).ready(function() {
 			osAnimationOffset = osElement.attr('data-os-animation-offset'),
 			osAnimationClassDown = osElement.attr('data-os-animation-down'),
 			osAnimationClassUp = osElement.attr('data-os-animation-up'),
-			osAnimationDelay = osElement.attr('data-os-animation-delay');
+			osAnimationDelay = osElement.attr('data-os-animation-delay'),
 			osAnimationDuration = osElement.attr('data-os-animation-duration');
 
 			osElement.css({
