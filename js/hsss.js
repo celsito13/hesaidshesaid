@@ -1,8 +1,12 @@
 $(document).ready(function() {
 
-	/*========================================================
+	/*============================================================================
 	WAYPOINTS
-	========================================================*/
+	Description: Controls animations as the user scrolls down 
+	the page. Used as a combination of Animate CSS (https://daneden.github.io/animate.css/)
+	to assign classes to elements and give them animation effects and waypoints api 
+	(http://imakewebthings.com/waypoints/api/waypoint/.)
+	============================================================================*/
 
 	/*=== "He" Animated Texts ===*/
 
@@ -29,6 +33,7 @@ $(document).ready(function() {
 			osTrigger.waypoint(function(direction) {
 				if (direction == 'down') {
 					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+					/*=== Play He Text Sound ===*/
 					he_said_text_message_sound.play();
 				}
 				if (direction == 'up') {
@@ -67,6 +72,7 @@ $(document).ready(function() {
 			osTrigger.waypoint(function(direction) {
 				if (direction == 'down') {
 					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+					/*=== Play She Text Sound ===*/
 					she_said_text_message_sound.play();
 				}
 				if (direction == 'up') {
@@ -153,6 +159,43 @@ $(document).ready(function() {
 	}
 
 	onScrollInit_introText( $('.os-intro-text-animation') );
+
+	/*=== Conclusion Text Animation ===*/
+
+	function onScrollInit_conclusionText( items, trigger ) {
+		items.each( function() {
+			var osElement = $(this),
+			osAnimationOffset = osElement.attr('data-os-animation-offset'),
+			osAnimationClassDown = osElement.attr('data-os-animation-down'),
+			osAnimationClassUp = osElement.attr('data-os-animation-up'),
+			osAnimationDelay = osElement.attr('data-os-animation-delay'),
+			osAnimationDuration = osElement.attr('data-os-animation-duration');
+
+			osElement.css({
+				'-webkit-animation-delay':     osAnimationDelay,
+				'-moz-animation-delay':        osAnimationDelay,
+				'animation-delay':             osAnimationDelay,
+				'-webkit-animation-duration':  osAnimationDuration,
+				'-moz-animation-duration':     osAnimationDuration,
+				'animation-duration':          osAnimationDuration,
+			});
+
+			var osTrigger = ( trigger ) ? trigger : osElement;
+
+			osTrigger.waypoint(function(direction) {
+				if (direction == 'down') {
+					osElement.addClass('animated').addClass(osAnimationClassDown).removeClass(osAnimationClassUp);
+				}
+				if (direction == 'up') {
+					osElement.addClass(osAnimationClassUp).removeClass(osAnimationClassDown);
+				}
+			},{
+				offset: '60%'
+			});
+		});
+	}
+
+	onScrollInit_conclusionText( $('.os-conclusion-text-animation') );
 
 	/*=== Audio Label Animation ===*/
 
@@ -253,6 +296,7 @@ $(document).ready(function() {
 
 	/*========================================================
 	FOOD ICON ANIMATIONS
+	Description: Creates a toggle effect for the food icons.
 	========================================================*/
 
 	$('.show_eggs_icon').click(function(){
@@ -281,6 +325,7 @@ $(document).ready(function() {
 
 	/*========================================================
 	HEADER OVERLAY
+	Description: Triggers overlay functionality for the menu and 'about'
 	========================================================*/
 
 	(function() {
@@ -338,14 +383,20 @@ $(document).ready(function() {
 
 	/*========================================================
 	SMOOTH SCROLL
+	Description: Controls smooth scroll links on the page that
+	link to internal ID's
 	========================================================*/
 
 	$('body a').smoothScroll({speed: 2000, offset: -60});
 
-	$('.overlay ul li a').smoothScroll({offset: -60});
+	$('.overlay ul li a').smoothScroll({speed: 2000, offset: -60});
+
+	$('a.small_smooth_scroll').smoothScroll({speed: 2000, offset: -260});
 
 	/*========================================================
 	SKROLLR
+	Description: Takes data attributes and changes elements as 
+	a user scrolls https://github.com/Prinzhorn/skrollr
 	========================================================*/
 
 	var s = skrollr.init( {
@@ -354,6 +405,8 @@ $(document).ready(function() {
 
 	/*========================================================
 	HOWL.JS
+	Description: Implements web audio api to play audio sounds
+    for the text messages. https://github.com/goldfire/howler.js/
 	========================================================*/
 
 	/*=== Text Message Sounds ===*/
@@ -368,6 +421,9 @@ $(document).ready(function() {
 
 	/*========================================================
 	WAVESURFER
+	Description: Creates unique visualizations for audio tracks.
+	In our case the wave form for each audio track. 
+	http://www.wavesurfer.fm/
 	========================================================*/
 
 	/*========================================================
@@ -596,6 +652,8 @@ $(document).ready(function() {
 
     /*========================================================
 	BACKSTRETCH
+	Description: Creates background fade effect on divs. 
+	https://github.com/srobbin/jquery-backstretch
 	========================================================*/
 
 	/*=== Number Exchange ===*/
@@ -611,6 +669,7 @@ $(document).ready(function() {
 	$("#first_impressions").backstretch([
 	   "img/first_impression_1.png",
 	   "img/first_impression_2.png",
+	   "img/first_impression_3.png",
 	   "img/first_impression_4.png"    
 	], {duration: 4000, fade: 1000});
 
@@ -633,28 +692,38 @@ $(document).ready(function() {
 
 	/*========================================================
 	VIDE
+	Description: Background ambient video on selected divs. 
+	https://github.com/VodkaBears/Vide
 	========================================================*/
 
 	/*=== Intro Video ===*/
 
-	$('#intro_video_container').vide('video/intro_video', {
+	$('#intro_video_container').vide({
+		mp4: 'video/intro_video',
+		poster: 'img/introduction_poster.png' 
+	},
+	{
 	  muted: true,
 	  loop: true,
 	  autoplay: true,
-	  position: '50% 50%', // Similar to the CSS `background-position` property.
-	  posterType: 'detect', // Poster image type. "detect" — auto-detection; "none" — no poster; "jpg", "png", "gif",... - extensions.
+	  position: '50% 50%', // Similar to the CSS `background-position` property. 
+	  posterType: 'png', // Poster image type. "detect" — auto-detection; "none" — no poster; "jpg", "png", "gif",... - extensions.
 	  resizing: true // Auto-resizing, read: https://github.com/VodkaBears/Vide#resizing
 	});
 
 	/*=== Conclusion Video ===*/
 
-	$('#conclusion_video_container').vide('video/conclusion_video', {
+	$('#conclusion_video_container').vide({
+		mp4: 'video/conclusion_video', 
+		poster: 'img/conclusion_poster.png'
+	},
+	{
 	  muted: true,
 	  loop: true,
 	  autoplay: true,
-	  position: '50% 50%', // Similar to the CSS `background-position` property.
-	  posterType: 'detect', // Poster image type. "detect" — auto-detection; "none" — no poster; "jpg", "png", "gif",... - extensions.
-	  resizing: true // Auto-resizing, read: https://github.com/VodkaBears/Vide#resizing
+	  position: '50% 50%',
+	  posterType: 'png',
+	  resizing: true 
 	});
 
 

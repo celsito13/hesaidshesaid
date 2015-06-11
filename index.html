@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>He Said She Said</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/fadeshow/jquery.fadeshow-0.1.1.min.css" />
     <link rel="stylesheet" href="css/hsss.css" />
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="js/vendor/modernizr.js"></script>
   </head>
+
   <body>
 
     <!-- HEADER -->
@@ -35,7 +37,7 @@
 
     <div class="page_container">
 
-      <!-- INTRO -->
+      <!-- INTRODUCTION -->
 
       <div class="colored_container" id="top_introduction" style="top:4px">
 
@@ -46,22 +48,30 @@
       </div>
 
       <div class="introduction">
-        <div class="he_intro">
-          <h2 class="os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">John, a thirty-something tech entrepreneur, first met</h2>
+        <div>
+          <div class="he_intro">
+            <h2 class="os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">John, a thirty-something tech entrepreneur, first met</h2>
+          </div>
+          <div class="she_intro">
+            <h2 class="os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">Sue, a twenty-something freelance writer</h2>
+          </div>
+          <a class="anchor_arrow os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s" href="#intro_video_container"><i class="fa fa-angle-down fa-3x"></i></a>
         </div>
-        <div class="she_intro">
-          <h2 class="os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">Sue, a twenty-something freelance writer, at a fairytale-themed Bushwick rave.</h2>
-        </div>
-        <a class="anchor_arrow" href="#intro_video_container"><i class="fa fa-angle-down fa-3x"></i></a>
       </div>
 
       <div class="intro_container" id="intro_video_container">
 
         <div class="row">
 
-          <div class="large-12 columns text-center os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
-            <h2>At the time of meeting, they were both in open relationships.</h2>
-            <a class="anchor_arrow" href="#start_story"><i class="fa fa-angle-down fa-3x"></i></a>
+          <div class="large-12 columns text-center">
+            <div class="os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
+              <h2>At a fairytale-themed Bushwick rave.</h2>
+              <a class="anchor_arrow small_smooth_scroll" href="#second_intro_line"><i class="fa fa-angle-down fa-3x"></i></a>
+            </div>
+            <div id="second_intro_line" class="os-intro-text-animation intro_text_hidden" data-os-animation-down="fadeInUp" data-os-animation-up="fadeOutDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
+              <h2>At the time of meeting, they were both in open relationships.</h2>
+              <a class="anchor_arrow" href="#start_story"><i class="fa fa-angle-down fa-3x"></i></a>
+            </div>
           </div>
 
         </div>
@@ -312,7 +322,7 @@
         <!-- LABEL -->
 
         <div class="os-map-label-animation ribbon_label top_label" data-os-animation-down="slideInLeft" data-os-animation-up="slideOutLeft" data-os-animation-delay="0s" data-os-animation-duration="1s">
-            <i class="fa fa-flag fa-lg"></i> <span class="label_title">206 Meserole St.</span>
+            <i class="fa fa-flag fa-lg"></i> <span class="label_title">260 Meserole St.</span>
         </div>
 
         <!-- ZOOMED MAP -->
@@ -381,9 +391,18 @@
 
         <div class="row">
 
-          <div class="large-12 columns text-center os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
-            <h2>John and Sue have since left their respective partners and are now in a long-distance relationship. They have chosen not to connect on social media.</h2>
-            <a class="primary_link" href="mailto:info@hesaidshesaid.com">Share Your Story</a><a class="primary_link trigger-overlay">Learn More</a>
+          <div class="large-12 columns text-center">
+            <div class="os-intro-text-animation" data-os-animation-down="fadeOutUp" data-os-animation-up="fadeInDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
+              <h2>John and Sue have since left their respective partners and are now in a long-distance relationship.</h2> 
+              <a class="anchor_arrow small_smooth_scroll" href="#second_conclusion_line"><i class="fa fa-angle-down fa-3x"></i></a>
+            </div>
+            <div id="second_conclusion_line" class="os-conclusion-text-animation intro_text_hidden" data-os-animation-down="fadeInUp" data-os-animation-up="fadeOutDown" data-os-animation-delay="0s" data-os-animation-duration="1s">
+              <h2>They have chosen not to connect on social media.</h2>
+            </div>
+          </div>
+
+          <div class="conclusion_links">
+            <a class="primary_link" href="mailto:info@hesaidshesaiddoc.com">Share Your Story</a><a class="primary_link trigger-overlay">Learn More</a>
           </div>
 
         </div>
@@ -418,7 +437,7 @@
           <div class="small-6 small-centered columns text-center">
             <h1>About</h1>
             <p><i>He Said/She Said</i> is an interactive love diary comprised of curated digital entries, testing the limits of technology in its ability to shape and distort the stories we tell.</p>
-            <p>info@hesaidshesaid.com</p>
+            <p>info@hesaidshesaiddoc.com</p>
           </div>
         </div>
 

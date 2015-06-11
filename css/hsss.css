@@ -220,11 +220,7 @@ CONCLUSION
 =============================*/
 
 #conclusion_video_container {
-  padding: 100px 0px;
-}
-
-#conclusion_video_container h2 {
-  margin-bottom: 100px;
+  padding: 300px 0px;
 }
 
 #conclusion_video_container > div:before {
@@ -236,6 +232,14 @@ CONCLUSION
   height: 100%;
   display: block;
   content: "";
+}
+
+.conclusion_links {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  margin-left: -107px;
+  z-index: 99;
 }
 
 /*=============================
@@ -448,7 +452,7 @@ ANIMATIONS
 
 /*=== Text Pop-Ups ===*/
 
-.os-animation-he, .os-animation-she, .os-audio-label-animation, .os-map-label-animation{
+.os-animation-he, .os-animation-she, .os-audio-label-animation, .os-map-label-animation, .intro_text_hidden{
   opacity: 0;
 }
 
@@ -602,7 +606,7 @@ INTRODUCTION
 
 .intro_container {
   display: block;
-  padding: 250px 0px;
+  padding: 300px 0px;
   position: relative;
 }
 
@@ -618,7 +622,7 @@ INTRODUCTION
 }
 
 .intro_container .row .columns {
-  z-index: 9999;
+  z-index: 999;
 }
 
 .intro_container h2 {
