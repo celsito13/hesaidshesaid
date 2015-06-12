@@ -441,6 +441,23 @@ $(document).ready(function() {
 	    cursorColor: '#ffffff'
 	});
 
+	/*=== Timeline ===*/
+
+	number_exchange.on('ready', function () {
+    var number_exchange_timeline = Object.create(WaveSurfer.Timeline);
+
+    number_exchange_timeline.init({
+        wavesurfer: number_exchange,
+        container: "#number_exchange_timeline",
+        height: 20,
+        primaryColor: "#ffffff",
+        primaryFontColor: "#ffffff",
+        secondaryFontColor: "#ffffff"
+	    });
+	});
+
+	/*=== Load Audio File ===*/
+
 	number_exchange.load('audio/number_exchange.mp3');
 
 	/*=== Auto Play Audio On Scroll ===*/
@@ -496,6 +513,23 @@ $(document).ready(function() {
 	    progressColor: '#eb5d4b',
 	    cursorColor: '#ffffff'
 	});
+
+	/*=== Timeline ===*/
+
+	first_impressions.on('ready', function () {
+    var first_impressions_timeline = Object.create(WaveSurfer.Timeline);
+
+    first_impressions_timeline.init({
+        wavesurfer: first_impressions,
+        container: "#first_impressions_timeline",
+        height: 20,
+        primaryColor: "#ffffff",
+        primaryFontColor: "#ffffff",
+        secondaryFontColor: "#ffffff"
+	    });
+	});
+
+	/*=== Load Audio File ===*/
 
 	first_impressions.load('audio/first_impressions.mp3');
 
@@ -553,6 +587,23 @@ $(document).ready(function() {
 	    cursorColor: '#ffffff'
 	});
 
+	/*=== Timeline ===*/
+
+	cuddle_room.on('ready', function () {
+    var cuddle_room_timeline = Object.create(WaveSurfer.Timeline);
+
+    cuddle_room_timeline.init({
+        wavesurfer: cuddle_room,
+        container: "#cuddle_room_timeline",
+        height: 20,
+        primaryColor: "#ffffff",
+        primaryFontColor: "#ffffff",
+        secondaryFontColor: "#ffffff"
+	    });
+	});
+
+	/*=== Load Audio File ===*/
+
 	cuddle_room.load('audio/cuddle_room.mp3');
 
 	/*=== Auto Play Audio On Scroll ===*/
@@ -608,6 +659,23 @@ $(document).ready(function() {
 	    progressColor: '#eb5d4b',
 	    cursorColor: '#ffffff'
 	});
+
+	/*=== Timeline ===*/
+
+	night_cap.on('ready', function () {
+    var night_cap_timeline = Object.create(WaveSurfer.Timeline);
+
+    night_cap_timeline.init({
+        wavesurfer: night_cap,
+        container: "#night_cap_timeline",
+        height: 20,
+        primaryColor: "#ffffff",
+        primaryFontColor: "#ffffff",
+        secondaryFontColor: "#ffffff"
+	    });
+	});
+
+	/*=== Load Audio File ===*/
 
 	night_cap.load('audio/night_cap.mp3');
 
